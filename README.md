@@ -40,7 +40,7 @@ This framework operates diversely:
 
 Captioning and Filtering (CapFilt)
 
-![3](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/76de6317-98d7-4ee5-a248-68eeab299b6c)
+![Screenshot 2023-08-23 181955](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/d9b83a82-506a-4ec7-a947-2a4b6d053109)
 
 Given the need for massive data and its associated high annotation costs, CapFilt introduces two modules derived from the same pre-trained objective. The Captioner generates captions for web images, acting as an image-grounded text decoder fine-tuned with LM objectives. The Filter removes noisy image-text pairs, functioning as an image-grounded text encoder fine-tuned with ITC and ITM objectives. Filtered pairs, alongside human-labeled captions, constitute the new dataset for further pre-training.
 
