@@ -9,13 +9,9 @@ Table of Contents:
 1. Introduction
 2. Visual Question Answering
 3. Theoretical Underpinnings
-4. BLIP
-     Multimodal Mixture of Encoder-Decoder (MED)
-     Captioning and Filtering (CapFilt)
-7. BLIP-2
-     Q-Former
+4. BLIP - Multimodal Mixture of Encoder-Decoder (MED) & Captioning and Filtering (CapFilt)
+7. BLIP-2 - Q-Former
 9. GIT
-
 
 Visual Question Answering
 Venturing into the captivating frontiers of AI research, Visual Question Answering (VQA) involves addressing open-ended questions about images. This task assigns computers the role of delivering pertinent and coherent answers to text-based queries concerning specific images. Achieving this feat demands a profound grasp of visual and linguistic processing, coupled with a touch of common-sense knowledge to offer effective responses.
@@ -44,7 +40,7 @@ This framework operates diversely:
 
 Captioning and Filtering (CapFilt)
 
-[Diagram illustration]
+![3](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/76de6317-98d7-4ee5-a248-68eeab299b6c)
 
 Given the need for massive data and its associated high annotation costs, CapFilt introduces two modules derived from the same pre-trained objective. The Captioner generates captions for web images, acting as an image-grounded text decoder fine-tuned with LM objectives. The Filter removes noisy image-text pairs, functioning as an image-grounded text encoder fine-tuned with ITC and ITM objectives. Filtered pairs, alongside human-labeled captions, constitute the new dataset for further pre-training.
 
@@ -55,7 +51,7 @@ BLIP-2 adopts a two-stream architecture, one handling images (akin to an image e
 
 Q-Former
 
-[Diagram illustration]
+![Screenshot 2023-08-23 182114](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/9f622b9a-5670-47e4-a788-29027e2d5402)
 
 The Q-Former comprises two submodules:
 
@@ -70,9 +66,13 @@ Q-Former's training covers:
 
 Attention masks include:
 
+![Screenshot 2023-08-23 182306](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/f39014fc-f8d1-4be5-be00-d2758fd576f2)
+
 1. Bi-directional self-attention mask: Enables interactions between learnable query tokens and text tokens.
 2. Multi-modal causal self-attention mask: Permits query token interactions and text tokens with prior predictions and queries.
 3. Uni-modal self-attention mask: Facilitates interactions among query and text tokens but not inter-group interactions.
+   
+![Screenshot 2023-08-23 182343](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/68751efb-0ed5-4653-a9ab-cd072c866188)
 
 BLIP-2's generative pre-training stage involves the Q-Former linking image encoder to LLM. Output query embeddings are added to text embeddings, acting as visual prompts for LLM, mitigating vision-language alignment challenges.
 
@@ -81,7 +81,7 @@ Generative Image-to-text Transformer (GIT) unifies vision-language tasks—capti
 
 Trained on an extensive dataset of 0.8 billion image-text pairs, GIT's substantial pre-training data and model size amplify performance. GIT excels on diverse benchmarks, even surpassing humans on TextCaps benchmark.
 
-[Diagram illustration]
+![Screenshot 2023-08-23 182458](https://github.com/ZEBAAFROZ/Visual_Question_Answer/assets/93834320/85756778-bbd2-4997-9754-d75824acde91)
 
 1. Image encoder: Contrastive pre-trained, takes raw image, yields compact feature map, flattened to features, and projected to D dimensions.
 2. Text decoder: Randomly initialized transformer predicting text description. Comprises transformer blocks with self-attention and feed-forward layers. Tokenized text with D dimensions and positional encoding joins image features for prediction.
@@ -90,4 +90,4 @@ GIT's holistic training involves predicting next words in sentences using langua
 
 GIT's application extends to video-based VQA by processing frames through the image encoder and adding temporal embeddings for enriched temporal information.
 
-[End of rephrased text.]
+
